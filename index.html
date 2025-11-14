@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jinnat, Our Story Isn't Over</title>
+    <title>Endless Love for Jinnat</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -22,15 +22,9 @@
             min-width: 340px;
             max-width: 420px;
         }
-        .headline {
-            font-size: 2rem;
-            margin-bottom: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        .message {
-            font-size: 1.18rem;
-            margin-bottom: 34px;
+        .question {
+            font-size: 1.35rem;
+            margin-bottom: 36px;
             color: #b05a7a;
         }
         .cta-btn {
@@ -53,65 +47,71 @@
         .footer {
             margin-top: 32px;
             color: #c87896;
-            font-size: 0.99rem;
+            font-size: 1rem;
             letter-spacing: 0.2px;
         }
-        .animated-heart {
-            font-size: 2.2rem;
+        .heart {
+            font-size: 2.3rem;
             animation: heartbeat 1.2s infinite;
             color: #ff69b4;
             margin-bottom: 18px;
         }
         @keyframes heartbeat {
             0%,100%   { transform: scale(1); }
-            12%  { transform: scale(1.15); }
-            28%  { transform: scale(1.0); }
+            12%  { transform: scale(1.18); }
+            28%  { transform: scale(1); }
             62%  { transform: scale(1.13); }
-            80%  { transform: scale(1.0); }
+            80%  { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="animated-heart">❤️</div>
-        <div class="headline">Jinnat, our story matters</div>
-        <div class="message" id="msg">
-            This is not the end for us, Jinnat.<br>
-            Every love story faces storms, but ours shines through.<br>
-            Do you believe in us?
-        </div>
-        <button class="cta-btn" id="yesBtn" onclick="handleChoice(true)">Yes, I do</button>
-        <button class="cta-btn" id="noBtn" onclick="handleChoice(false)">No, but comfort me</button>
+        <img src="1000038773.jpg" alt="Couple Photo" style="width:85%;max-width:320px;border-radius:20px;margin-bottom:18px;box-shadow:0 4px 20px rgba(255,182,213,0.25);" />
+        <div class="heart">💖</div>
+        <div class="question" id="mainQuestion"></div>
+        <button class="cta-btn" onclick="handleAnswer(true)">Yes, I believe!</button>
+        <button class="cta-btn" onclick="handleAnswer(false)">No, ask me again</button>
     </div>
     <div class="footer">
-        From the heart, for <span style="color:#ff69b4;font-weight:bold;">Jinnat</span>.
+        Made with love for <span style="color:#ff69b4;font-weight:bold;">Jinnat</span>
     </div>
     <script>
-        const messages = [
-            "Hard times only test strong hearts, Jinnat. Are you ready to believe in us again?",
-            "Jinnat, your smile is my sunshine. Will you give us another chance to bloom together?",
-            "Love sometimes hurts, but every sweet moment with you is worth it, Jinnat. Can we try again?",
-            "It's okay to be unsure, Jinnat. Holding your hand is all I need. Will you trust in love?"
-        ];
-        const noCopy = [
-            "No, but comfort me",
-            "No, but remind me why",
-            "No, help me feel hopeful",
-            "No, show me a reason"
+        // Add as many romantic, fun, or sweet questions as you'd like!
+        const questions = [
+            "Jinnat, will you let our story continue?",
+            "Would you laugh with me, even on cloudy days, Jinnat?",
+            "Is your smile still my favorite sunrise, Jinnat?",
+            "Would you trust our hearts to heal together, Jinnat?",
+            "Will you be my adventure for life, Jinnat?",
+            "Do you feel love's magic between us, Jinnat?",
+            "Can you let me care for your heart, Jinnat?",
+            "Will you let hope blossom with me, Jinnat?",
+            "Would you hold my hand through every season, Jinnat?",
+            "Can we make the world jealous of our love, Jinnat?",
+            "Is happiness best when we're together, Jinnat?",
+            "Will you say yes to forever with me, Jinnat?",
+            // Add 20, 50, 100+ here: the cycle will never stop!
         ];
         let idx = 0;
-        function handleChoice(isYes) {
-            if(isYes){
-                document.getElementById('msg').innerHTML =
-                    "Thank you for trusting in our journey, Jinnat.<br>Every challenge leads us to stronger love. You are my hope and my home.";
-                document.getElementById('yesBtn').style.display = 'none';
-                document.getElementById('noBtn').style.display = 'none';
+
+        function showQuestion() {
+            document.getElementById("mainQuestion").innerHTML = questions[idx % questions.length];
+        }
+
+        function handleAnswer(isYes) {
+            if (isYes) {
+                document.getElementById("mainQuestion").innerHTML =
+                    "Thank you for your 'Yes', Jinnat! Love always wins when you believe.";
+                document.querySelectorAll(".cta-btn")[0].style.display = 'none';
+                document.querySelectorAll(".cta-btn")[1].style.display = 'none';
             } else {
-                document.getElementById('msg').innerHTML = messages[idx % messages.length];
-                document.getElementById('noBtn').innerHTML = noCopy[idx % noCopy.length];
                 idx++;
+                showQuestion();
             }
         }
+        // Start the first question on load
+        showQuestion();
     </script>
 </body>
 </html>
