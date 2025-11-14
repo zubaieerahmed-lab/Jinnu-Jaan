@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Endless Love for Jinnat</title>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet" />
+<style>
+body {
+    background: linear-gradient(135deg, #ffe6f0 0%, #ffb5c0 100%);
+    font-family: 'Quicksand', Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    color: #843652;
+}
+.container {
+    margin-top: 80px;
+    background: #fff0f6;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(200, 120, 150, 0.18);
+    padding: 48px 24px;
+    display: inline-block;
+    min-width: 340px;
+    max-width: 420px;
+}
+/* Removed couple photo styles */
+.letter {
+    border: 3px solid #f4a9b4;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 420px;
+    background-color: #fff0f6;
+    font-family: 'Quicksand', Arial, sans-serif;
+}
+.letter-header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #b05a7a;
+}
+#topText {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+#topText span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.question {
+    font-size: 1.35rem;
+    margin-bottom: 36px;
+    color: #b05a7a;
+}
+.cta-btn {
+    width: 180px;
+    background: #ffb6d5;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 16px 0;
+    margin: 0 14px 20px 14px;
+    font-size: 1.17rem;
+    font-family: inherit;
+    box-shadow: 0 2px 10px rgba(220, 110, 126, 0.11);
+    transition: background 0.3s;
+    cursor: pointer;
+}
+.cta-btn:hover {
+    background: #ff90b7;
+}
+.footer {
+    margin-top: 32px;
+    color: #c87896;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+.heart {
+    font-size: 2.3rem;
+    animation: heartbeat 1.2s infinite;
+    color: #ff69b4;
+    margin-bottom: 18px;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    12% { transform: scale(1.18); }
+    28% { transform: scale(1); }
+    62% { transform: scale(1.13); }
+    80% { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<div class="letter">
+<div id="topText">
+    <div>07012024</div>
+    <div>♾️</div>
+</div>
+<div class="letter-header">Open Letter</div>
+<div class="question" id="mainQuestion"></div>
+<button class="cta-btn" onclick="handleAnswer(true)">Yes, I believe!</button>
+<button class="cta-btn" onclick="handleAnswer(false)">No, ask me again</button>
+</div>
+<div class="footer">
+Made with love for <span style="color:#ff69b4;font-weight:bold;">Jinnat</span>
+</div>
+<script>
+const questions = [
+    "Jinnat, will you let our story continue?",
+    "Would you laugh with me, even on cloudy days, Jinnat?",
+    "Is your smile still my favorite sunrise, Jinnat?",
+    "Would you trust our hearts to heal together, Jinnat?",
+    "Will you be my adventure for life, Jinnat?",
+    "Do you feel love's magic between us, Jinnat?",
+    "Can you let me care for your heart, Jinnat?",
+    "Will you let hope blossom with me, Jinnat?",
+    "Would you hold my hand through every season, Jinnat?",
+    "Can we make the world jealous of our love, Jinnat?",
+    "Is happiness best when we're together, Jinnat?",
+    "Will you say yes to forever with me, Jinnat?"
+];
+let idx = 0;
+function showQuestion() {
+    document.getElementById("mainQuestion").innerHTML = questions[idx % questions.length];
+}
+function handleAnswer(isYes) {
+    if (isYes) {
+        document.getElementById("mainQuestion").innerHTML =
+            "Thank you for your 'Yes', Jinnat! Love always wins when you believe.";
+        document.querySelectorAll(".cta-btn").forEach(btn => btn.style.display = 'none');
+    } else {
+        idx++;
+        showQuestion();
+    }
+}
+showQuestion();
+</script>
+</body>
+</html>
